@@ -2,37 +2,30 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   final String title;
-  final String description;
-  final IconData icon;
+  final String content;
 
   const CustomCard({
     super.key,
     required this.title,
-    required this.description,
-    required this.icon,
+    required this.content,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 40, color: Colors.blue),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 8),
-                  Text(description, style: const TextStyle(fontSize: 14)),
-                ],
-              ),
-            ),
+            Text(title,
+                style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Text(content, style: const TextStyle(fontSize: 14)),
           ],
         ),
       ),
